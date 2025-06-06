@@ -1,8 +1,6 @@
 <?php
-// Define que a resposta será em formato JSON
 header('Content-Type: application/json; charset=UTF-8');
 
-// Objeto de resposta que será convertido para JSON
 $response = ['status' => 'error', 'message' => 'Ocorreu um erro inesperado.'];
 
 // Cores da paleta (para fácil referência)
@@ -20,29 +18,25 @@ $corBegeClaroMensagem = '#FDF6E8'; // custom-light-beige (mantido para a seção
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // ===== CONFIGURE AQUI ===== //
-    $destinatario = "edipo1998@gmail.com"; // Substitua pelo seu e-mail de destino
-    $assunto = "Nova Cotação de Viagem via Site - Trippin' Club"; // Assunto atualizado
-    $urlLogo = "https://brown-stork-488794.hostingersite.com/assets/trippin_club_logo_sem_fundo_novo.png"; // SUBSTITUA PELA URL PÚBLICA DO SEU LOGO (placeholder atualizado para refletir novas cores)
-    // ========================== //
+    $destinatario = "edipo1998@gmail.com";
+    $assunto = "Nova Cotação de Viagem via Site - Trippin' Club"; 
+    $urlLogo = "https://brown-stork-488794.hostingersite.com/assets/trippin_club_logo_sem_fundo_novo.png";
 
-    // Coleta e limpa os dados do formulário
     $nome = strip_tags(trim($_POST["name"]));
     $email_cliente = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
     $telefone = strip_tags(trim($_POST["phone"]));
     $destino_viagem = strip_tags(trim($_POST["destination"]));
     $datas_viagem = strip_tags(trim($_POST["travel_dates"]));
     $num_viajantes = strip_tags(trim($_POST["num_travelers"]));
-    $mensagem_cliente = nl2br(htmlspecialchars(trim($_POST["message"]))); // nl2br para preservar quebras de linha e htmlspecialchars
+    $mensagem_cliente = nl2br(htmlspecialchars(trim($_POST["message"])));
 
     // Validação
     if (empty($nome) || !filter_var($email_cliente, FILTER_VALIDATE_EMAIL) || empty($destino_viagem)) {
         $response['message'] = 'Por favor, preencha todos os campos obrigatórios (Nome, E-mail e Destino) corretamente.';
         echo json_encode($response);
-        exit; // Encerra o script
+        exit; 
     }
 
-    // Monta o corpo do e-mail em HTML
     $corpo_email = "
     <!DOCTYPE html>
     <html lang='pt-BR'>
@@ -106,22 +100,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </html>
     ";
 
-    // Cabeçalhos para e-mail HTML
-    $remetente_nome = "Trippin' Club Cotações"; // Nome que aparecerá como remetente
-    $remetente_email = "nao-responda@" . preg_replace('(^www\.)', '', $_SERVER['SERVER_NAME']); // Remove www. se existir
+    $remetente_nome = "Trippin' Club Cotações"; 
+    $remetente_email = "nao-responda@" . preg_replace('(^www\.)', '', $_SERVER['SERVER_NAME']);
     
     $headers = "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-    $headers .= "From: \"$remetente_nome\" <$remetente_email>\r\n"; // Remetente com nome
-    $headers .= "Reply-To: \"$nome\" <$email_cliente>\r\n"; // Responder para o cliente
+    $headers .= "From: \"$remetente_nome\" <$remetente_email>\r\n";
+    $headers .= "Reply-To: \"$nome\" <$email_cliente>\r\n"; 
     $headers .= "X-Mailer: PHP/" . phpversion();
 
-    // Tenta enviar o e-mail
-    if (mail($destinatario, "=?UTF-8?B?".base64_encode($assunto)."?=", $corpo_email, $headers)) { // Assunto codificado para UTF-8
+    if (mail($destinatario, "=?UTF-8?B?".base64_encode($assunto)."?=", $corpo_email, $headers)) { 
         $response['status'] = 'success';
         $response['message'] = 'Sua solicitação foi enviada com sucesso! Em breve, entraremos em contato.';
     } else {
-        // Log de erro (para depuração no servidor, não para o cliente)
         error_log("Falha ao enviar e-mail de cotação. Destinatário: $destinatario, Assunto: $assunto, Headers: $headers");
         $response['message'] = 'Houve uma falha no servidor ao tentar enviar o e-mail. Por favor, tente novamente mais tarde ou entre em contato por outro canal.';
     }
@@ -129,7 +120,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $response['message'] = 'Método de requisição inválido.';
 }
 
-// Envia a resposta final em formato JSON e encerra o script
 echo json_encode($response);
 exit;
 ?>

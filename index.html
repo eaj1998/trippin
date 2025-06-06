@@ -4,121 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agência de Viagens Fantásticas - Sua Próxima Aventura Começa Aqui</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Trippin' Club Viagens - Sua Próxima Aventura Começa Aqui</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script src="js/tailwindcss.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/tailwind-config.js"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'custom-light-beige': '#FDF6E8',
-                        'custom-light-blue-gray': '#D2E0E4',
-                        'custom-off-white': '#FFFBF6',
-                        'custom-coral': '#FBA57A',
-                        'custom-pale-orange': '#FAE2BA',
-                        'custom-light-steel-blue': '#A1C7DD',
-                        'custom-steel-blue': '#3B84B7',
-                    },
-                    fontFamily: {
-                        inter: ['Inter', 'sans-serif'],
-                    },
-                }
-            }
-        }
+        tailwind.config = window.tailwindConfig;
     </script>
-    <style>
-        /* Estilos personalizados adicionais */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: theme('colors.custom-off-white');
-            /* Cor de fundo principal */
-        }
-
-        .hero-bg {
-            /* Imagem de fundo inspiradora de viagem - substitua pela sua */
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/tropical.png');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            /* 40px */
-            font-weight: 700;
-            color: theme('colors.custom-steel-blue');
-            text-align: center;
-            margin-bottom: 1.5rem;
-            /* 24px */
-        }
-
-        .section-subtitle {
-            font-size: 1.125rem;
-            /* 18px */
-            color: theme('colors.slate.600');
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 3rem auto;
-            /* 48px */
-        }
-
-        .card {
-            background-color: theme('colors.white');
-            border-radius: 0.75rem;
-            /* 12px */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .btn-primary {
-            background-color: #FBA57A;
-            color: #FFFBF6;
-            padding: 0.75rem 1.5rem;
-            /* 12px 24px */
-            border-radius: 0.5rem;
-            /* 8px */
-            font-weight: 600;
-            text-transform: uppercase;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background-color: #e79061;
-            /* Um tom mais escuro do coral */
-        }
-
-        .btn-secondary {
-            background-color: theme('colors.custom-steel-blue');
-            color: theme('colors.white');
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            background-color: #2a6ca1;
-            /* Um tom mais escuro do steel blue */
-        }
-
-        /* Mobile menu styles */
-        .mobile-menu {
-            display: none;
-        }
-
-        .payment-icon {
-            font-size: 2.5rem;
-            /* Tamanho dos ícones de pagamento */
-            color: theme('colors.custom-light-blue-gray');
-            margin: 0 0.5rem;
-            /* Espaçamento entre os ícones */
-        }
-    </style>
 </head>
 
 <body class="text-gray-800">
@@ -126,8 +21,8 @@
     <!-- Header/Nav -->
     <header class="bg-custom-off-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-2 flex justify-between items-center h-20">
-            <a href="#" class="block flex-shrink-0">
-                <img src="assets/trippin_club_logo_sem_fundo_novo.jpg" alt="Logo Trippin' Club"
+            <a href="#hero" class="block flex-shrink-0">
+                <img src="assets/trippin_club_logo_sem_fundo_novo.png" alt="Logo Trippin' Club"
                     onerror="this.onerror=null; this.src='assets/trippin_club_logo_sem_fundo_novo.png';"
                     class="h-32 max-h-full w-auto object-contain">
             </a>
@@ -166,8 +61,6 @@
             </div>
         </div>
     </header>
-
-
 
     <!-- Hero Section -->
     <section id="hero"
@@ -398,26 +291,28 @@
 
                 <div class="mt-12 text-center">
                     <h3 class="text-xl font-semibold mb-4 text-custom-steel-blue">Ou Fale Conosco Diretamente:</h3>
-                    
+
                     <a href="https://api.whatsapp.com/send/?phone=5549991335511&text=Ol%C3%A1%2C+equipe+Trippin%27+Club%21+%EF%BF%BD%0A%0AGostaria+de+solicitar+uma+cota%C3%A7%C3%A3o.+Seguem+as+informa%C3%A7%C3%B5es%3A%0A%0A-+Destino%3A+%0A-+Datas+%28aproximadas%29%3A+%0A-+N%C3%BAmero+de+viajantes%3A+&type=phone_number&app_absent=0"
-                       target="_blank" class="flex items-center justify-center text-lg mb-3 text-gray-800 hover:text-custom-coral transition duration-300">
+                        target="_blank"
+                        class="flex items-center justify-center text-lg mb-3 text-gray-800 hover:text-custom-coral transition duration-300">
                         <i class="fab fa-whatsapp text-custom-coral mr-2 text-xl"></i>
                         <span>(49) 99133-5511</span>
                     </a>
-                
-                    <a href="https://www.instagram.com/trippinclubviagens/"
-                       target="_blank" class="flex items-center justify-center text-lg mb-3 text-gray-800 hover:text-custom-coral transition duration-300">
+
+                    <a href="https://www.instagram.com/trippinclubviagens/" target="_blank"
+                        class="flex items-center justify-center text-lg mb-3 text-gray-800 hover:text-custom-coral transition duration-300">
                         <i class="fab fa-instagram text-custom-coral mr-2 text-xl"></i>
                         <span>trippinclubviagens</span>
                     </a>
-                    
+
                     <!-- <a href="https://wa.me/5549991335511?text=Ol%C3%A1%2C%20gostaria%20de%20or%C3%A7ar%20uma%20viagem..." target="_blank" class="text-lg mb-2"><i class="fab fa-whatsapp text-custom-coral mr-2"></i> (49) 99133-5511</a> -->
-                    
-                    <a href="mailto:atendimento@trippinclubviagens.com.br" class="flex items-center justify-center text-lg text-gray-800 hover:text-custom-coral transition duration-300">
+
+                    <a href="mailto:atendimento@trippinclubviagens.com.br"
+                        class="flex items-center justify-center text-lg text-gray-800 hover:text-custom-coral transition duration-300">
                         <i class="fas fa-envelope text-custom-coral mr-2 text-xl"></i>
                         <span>atendimento@trippinclubviagens.com.br</span>
                     </a>
-                                        
+
                     <!-- <div class="mt-8 flex justify-center space-x-6">
                         <a href="https://www.instagram.com/trippinclubviagens/" target="_blank" class="text-custom-steel-blue hover:text-custom-coral text-3xl transition duration-300"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="text-custom-steel-blue hover:text-custom-coral text-3xl transition duration-300" title="Facebook (substitua # pelo seu link)"><i class="fab fa-facebook-square"></i></a>
@@ -435,12 +330,9 @@
             <div class="flex justify-center items-center">
                 <i class="fab fa-cc-visa payment-icon" title="Visa"></i>
                 <i class="fab fa-cc-mastercard payment-icon" title="Mastercard"></i>
-                <i class="fab fa-cc-amex payment-icon" title="American Express"></i>
-                <!-- {/* Adicionar Elo como texto ou imagem se não houver ícone FA direto */} -->
+                <i class="fab fa-cc-amex payment-icon" title="American Express"></i>                
                 <span class="payment-icon text-2xl font-bold" title="Elo">ELO</span>
-                <i class="fab fa-pix payment-icon" title="Pix"></i>
-                <!-- {/* Ícone para Pix, se disponível/criado */} -->
-                <!-- {/* Para Boleto, pode-se usar um ícone genérico ou texto */} -->
+                <i class="fab fa-pix payment-icon" title="Pix"></i>                
                 <i class="fas fa-barcode payment-icon" title="Boleto"></i>
             </div>
         </div>
@@ -449,21 +341,19 @@
                 <a href="#services" class="hover:text-white transition duration-300">Serviços</a>
                 <a href="#about" class="hover:text-white transition duration-300">Sobre</a>
                 <a href="#reviews" class="hover:text-white transition duration-300">Avaliações</a>
-                <a href="#contact" class="hover:text-white transition duration-300">Contato</a>
-                <!-- <a href="#" class="hover:text-white transition duration-300">Política de Privacidade</a> -->
+                <a href="#contact" class="hover:text-white transition duration-300">Contato</a>                
             </div>
-            <p class="text-sm">&copy; <span id="currentYear"></span> Trippin’ Club Viagens. Todos os direitos
+            <p class="text-sm">&copy; <span id="currentYear"></span> Trippin' Club Viagens. Todos os direitos
                 reservados.</p>
         </div>
     </footer>
-
+    <script src="js/gsap.min.js"></script>
+    <script src="js/ScrollToPlugin.min.js"></script>
     <script>
-        // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
-            // Change icon based on menu state
             const icon = mobileMenuButton.querySelector('i');
             if (mobileMenu.style.display === 'block') {
                 icon.classList.remove('fa-bars');
@@ -474,7 +364,6 @@
             }
         });
 
-        // Close mobile menu when a link is clicked
         const mobileMenuLinks = mobileMenu.querySelectorAll('a');
         mobileMenuLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -485,15 +374,17 @@
             });
         });
 
-        // Smooth scroll for anchor links
+        gsap.registerPlugin(ScrollToPlugin);
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                // Ensure it's a valid internal link before preventing default
                 if (href.length > 1 && document.querySelector(href)) {
                     e.preventDefault();
-                    document.querySelector(href).scrollIntoView({
-                        behavior: 'smooth'
+                    gsap.to(window, {
+                        duration: 1.5,
+                        scrollTo: href,
+                        ease: "power2.inOut"
                     });
                 }
             });
@@ -504,53 +395,44 @@
         const formStatus = document.getElementById('form-status');
 
         quoteForm.addEventListener('submit', function (event) {
-            // 1. Previne o comportamento padrão de recarregar a página
             event.preventDefault();
 
-            // 2. Coleta os dados do formulário
             const formData = new FormData(quoteForm);
             const submitButton = quoteForm.querySelector('button[type="submit"]');
             const originalButtonText = submitButton.innerHTML;
 
 
-            // 3. Desativa o botão e mostra um status de "carregando"
             submitButton.disabled = true;
             submitButton.innerHTML = 'Enviando...';
-            formStatus.innerHTML = ''; // Limpa mensagens antigas
+            formStatus.innerHTML = '';
 
-            // 4. Envia os dados usando a API Fetch
             fetch('enviar_formulario.php', {
                 method: 'POST',
                 body: formData
             })
-                .then(response => response.json()) // 5. Converte a resposta do servidor para JSON
+                .then(response => response.json())
                 .then(data => {
-                    // 6. Processa a resposta JSON
                     if (data.status === 'success') {
-                        // Sucesso!
                         formStatus.innerHTML = `<p class="text-green-600">${data.message}</p>`;
-                        quoteForm.reset(); // Limpa os campos do formulário
+                        quoteForm.reset();
                     } else {
-                        // Erro!
                         formStatus.innerHTML = `<p class="text-red-600">${data.message}</p>`;
                     }
                 })
                 .catch(error => {
-                    // 7. Lida com erros de rede ou falhas na comunicação
                     console.error('Erro:', error);
                     formStatus.innerHTML = `<p class="text-red-600">Ocorreu um erro de comunicação. Tente novamente.</p>`;
                 })
                 .finally(() => {
-                    // 8. Roda sempre no final, reativando o botão
                     submitButton.disabled = false;
                     submitButton.innerHTML = originalButtonText;
                 });
         });
 
-        // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
     </script>
+    
 
 </body>
 
